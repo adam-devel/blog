@@ -55,7 +55,7 @@
     </section>
     <section>
       <h1>Recent Pages</h1>
-      {{ range first 64 .Pages }}
+      {{ range first 64 .Data.Pages.ByDate.Reverse }}
       <article>
         <header>
           <h2>
