@@ -1,0 +1,3 @@
+baseURL = 'https://adam-devel.github.org/blog/'
+languageCode = 'en'
+title = "Adam's Blog"

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+  <style>
+    body {
+      margin: 40px auto;
+      max-width: 650px;
+      line-height: 1.6;
+      font-size: 18px;
+      padding: 0 10px
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #DDD;
+        background-color: #222;
+      }
+
+      :link {
+        color: #d0cda3;
+      }
+
+      :visited {
+        color: #99977b;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        color: #444;
+        background-color: #FFF;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>
+      {{ .Site.Title }}
+    </h1>
+  </header>
+  <main>
+    <section>
+      {{ .Content }}
+    </section>
+    <section>
+      <h1>Recent Pages</h1>
+      {{ range first 64 .Pages }}
+      <article>
+        <header>
+          <h2>
+            <a href="{{ .RelPermalink }}">
+              <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "2006-01-02" }}
+              </time>
+            </a>
+            -
+            {{ .Title }}
+          </h2>
+
+        </header>
+        <p>{{ .Summary | truncate 100 }}</p>
+      </article>
+      {{ end }}
+    </section>
+  </main>
+</body>
+
+</html>
